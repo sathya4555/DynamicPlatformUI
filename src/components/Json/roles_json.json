@@ -1,0 +1,79 @@
+[
+    {
+        "page_label": " Role ",
+        "service": "ROLES1_SERVICE",
+        "queue": "ROLES1",
+        "method": 
+            {
+                "add": "POST",
+                "update": "PUT",
+                "delete": "DELETE"
+            },
+            "geturl": "roles",
+            "tabledata": [
+                {
+                    "rowname":"CreationDate"
+                },
+                      {
+                        "rowname":"ModifiedDate"
+        
+                      } ,{
+                        "rowname":"ModifiedBy"
+        
+                      },
+                      {
+                        "rowname":"CreatedBy"
+                      },
+                      {
+                        "rowname":"RowVersion"
+        
+                      },
+                      {
+                        "rowname":"role_name"
+        
+                      },{
+                        "rowname":"role_priviledge"
+        
+                      }
+                  
+                ],
+        "fields": [
+            {
+                "field_id": "created_by",
+                "field_label": "created_by",
+                "field_mandatory": "yes",
+                "field_placeholder": "Enter created_by",
+                "field_type": "text",
+                "field_value": ""
+            },
+            {
+                "field_id": "modified_by",
+                "field_label": "modified_by",
+                "field_mandatory": "yes",
+                "field_placeholder": "Enter modified_by",
+                "field_type": "text"
+            },
+            {
+                "field_id": "row_version",
+                "field_label": "row_version",
+                "field_mandatory": "yes",
+                "field_placeholder": "Enter row_version",
+                "field_type": "text"
+            },
+            {
+                "field_id": "role_name",
+                "field_label": "role_name",
+                "field_mandatory": "yes",
+                "field_placeholder": "Enter role_name",
+                "field_type": "text"
+            },
+            {
+                "field_id": "role_priviledge",
+                "field_label": "role_priviledge",
+                "field_mandatory": "yes",
+                "field_placeholder": "Enter role_priviledge",
+                "field_type": "text"
+            }
+        ]
+    }
+]
