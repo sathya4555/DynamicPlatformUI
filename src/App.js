@@ -7,6 +7,13 @@ import { Nav } from './components/Nav';
 import app_json from './components/Json/app_json.json'
 import rolejsonimport from './components/Json/roles_json.json'
 import Dashboard from './components/dashboard';
+import Signup from './components/Signup';
+import Login from './components/login';
+import { Account } from './components/Account';
+import Status from './components/Status';
+// import TenantList from './components/TenantList';
+import { TenantLogin } from './components/TenantLogin';
+
 
 let socket = io.connect('https://localhost:4000');
 
@@ -42,39 +49,36 @@ let socket = io.connect('https://localhost:4000');
   }, [])
   const [setjSON, setsetjSON] = useState('')
   const [rolejson, setrolejson] = useState('')
+  const [flag, setflag] = useState(0)
 const setappjson = (e)=>{
   e.preventDefault();
   setsetjSON(app_json[0])
     console.log(setjSON);
+    setflag(1)
 }
 
 const setrolejsonfunction = (e)=>{
   e.preventDefault();
   setsetjSON(rolejsonimport[0])
     console.log(rolejsonimport[0]);
+    setflag(1)
+
 }
 
   return (
 <div>
 <BrowserRouter>
-    <Nav />
-    <main className="form-signin">
-    <button type="button" onClick={(e) => setappjson(e)}  className="btn btn-danger">setappjson</button>
-    <button type="button" onClick={(e) => setrolejsonfunction(e)}  className="btn btn-danger">setrolejson</button>
+  <Nav/>
+    <Account>
+      <Status/>
+    <Route exact path="/signup" component={() =>  <Signup/>}/>
+    <Route exact path="/login" component={() =>  <Login/>}/>
+    <Route exact path="/tenant" component={() =>  <TenantLogin/>}/>
 
+    </Account>
 
-      {/* <Link to="/admin/upload">About</Link> */}
-      {/* <PrimarySearchAppBar /> */}
-
-
-      <Route exact path="/app" component={() => <FormData  setjSON={setjSON}/>} />
-      {/* <Route exact path="/login" component={() => <Login  setName={setName} />} /> */}
-  
-    </main>
-    {/* <Dashboard/> */}
   </BrowserRouter>
 {/* <FormData/> */}
-
 </div>
    
   );

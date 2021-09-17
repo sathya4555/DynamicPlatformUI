@@ -1,6 +1,6 @@
 [
     {
-        "page_label": " Role ",
+        "page_label": "Role",
         "service": "ROLES1_SERVICE",
         "queue": "ROLES1",
         "method": 
@@ -39,26 +39,28 @@
                 ],
         "fields": [
             {
-                "field_id": "created_by",
-                "field_label": "created_by",
+                "field_id": "CreatedBy",
+                "field_label": "CreatedBy",
                 "field_mandatory": "yes",
-                "field_placeholder": "Enter created_by",
+                "field_placeholder": "Enter CreatedBy",
                 "field_type": "text",
                 "field_value": ""
             },
             {
-                "field_id": "modified_by",
-                "field_label": "modified_by",
+                "field_id": "ModifiedBy",
+                "field_label": "ModifiedBy",
                 "field_mandatory": "yes",
-                "field_placeholder": "Enter modified_by",
+                "field_placeholder": "Enter ModifiedBy",
                 "field_type": "text"
+
             },
             {
-                "field_id": "row_version",
-                "field_label": "row_version",
+                "field_id": "RowVersion",
+                "field_label": "RowVersion",
                 "field_mandatory": "yes",
-                "field_placeholder": "Enter row_version",
+                "field_placeholder": "Enter RowVersion",
                 "field_type": "text"
+        
             },
             {
                 "field_id": "role_name",
@@ -66,6 +68,7 @@
                 "field_mandatory": "yes",
                 "field_placeholder": "Enter role_name",
                 "field_type": "text"
+             
             },
             {
                 "field_id": "role_priviledge",
@@ -73,7 +76,9 @@
                 "field_mandatory": "yes",
                 "field_placeholder": "Enter role_priviledge",
                 "field_type": "text"
+           
             }
         ]
+        
     }
 ]
