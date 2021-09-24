@@ -1,15 +1,15 @@
 [
     {
-        "page_label": "Role",
-        "service": "ROLES1_SERVICE",
-        "queue": "ROLES1",
+        "page_label": "AppRoles",
+        "service": "APP_ROLES1_SERVICE",
+        "queue": "APP_ROLES1",
         "method": 
             {
                 "add": "POST",
                 "update": "PUT",
                 "delete": "DELETE"
             },
-            "geturl": "roles",
+            "geturl": "app_roles",
             "tabledata": [
                 {
                     "rowname":"CreationDate"
@@ -29,10 +29,7 @@
         
                       },
                       {
-                        "rowname":"role_name"
-        
-                      },{
-                        "rowname":"role_priviledge"
+                        "rowname":"app_role_permissions"
         
                       }
                   
@@ -63,22 +60,58 @@
         
             },
             {
-                "field_id": "role_name",
-                "field_label": "role_name",
+                "field_id": "app_role_permissions",
+                "field_label": "app_role_permissions",
                 "field_mandatory": "yes",
-                "field_placeholder": "Enter role_name",
+                "field_placeholder": "Enter app_role_permissions",
                 "field_type": "text"
              
             },
             {
-                "field_id": "role_priviledge",
-                "field_label": "role_priviledge",
-                "field_mandatory": "yes",
-                "field_placeholder": "Enter role_priviledge",
-                "field_type": "text"
-           
-            }
-        ]
+              "field_id": "apps",
+              "field_label": "app_name",
+              "field_value": "Part-Time",
+              "field_mandatory": "yes",
+              "field_options": [
+                  {
+                      "option_label": "Full-Time"
+                  },
+                  {
+                      "option_label": "Part-Time"
+                  }
+              ],
+              "field_type": "select"
+          },
+          {
+            "field_id": "roles",
+            "field_label": "role_name",
+            "field_value": "Part-Time",
+            "field_mandatory": "yes",
+            "field_options": [
+                {
+                    "option_label": "Full-Time"
+                },
+                {
+                    "option_label": "Part-Time"
+                }
+            ],
+            "field_type": "select"
+        }
+    
+        ],
+        "DataCollection":[
+          {
+                   "RowVersion": "RowVersion",
+                  "Id": "5",
+                  "CreationDate": "CreationDate",
+                  "ModifiedDate":"ModifiedDate",
+                  "CreatedBy": "CreatedBy",
+                  "ModifiedBy": "ModifiedBy",
+                  "app_role_permissions": "edd"
+                
+          }
+                
+            ]
         
     }
 ]

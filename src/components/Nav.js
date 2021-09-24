@@ -23,6 +23,8 @@ export const Nav = () => {
           <NavDropdown.Item >    <Link to="/login" className="nav-link" >Login</Link></NavDropdown.Item>
 
           <NavDropdown.Item >    <Link to="/tenant" className="nav-link" >Tenant</Link></NavDropdown.Item>
+          <NavDropdown.Item >    <Link to="/awslogin" className="nav-link" >AWSLogin</Link></NavDropdown.Item>
+
           {/* <NavDropdown.Item >   <a href={"https://platformdomain.auth.ca-central-1.amazoncognito.com/login?client_id=6ao3t42tqdtgrp56ojvauitm25&response_type=code&scope=email+openid+profile&redirect_uri=http://localhost:3001/apps"}>LinkedIn handle</a> </NavDropdown.Item> */}
           <NavDropdown.Divider />
           {/* <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
