@@ -11,6 +11,7 @@
             },
         "geturl": "apps",
         "tabledata": [
+      
         {
             "rowname":"CreationDate"
         },
@@ -95,5 +96,219 @@
 
           
       ]
+    },
+    {
+      "page_label": "Role",
+      "service": "ROLES1_SERVICE",
+      "queue": "ROLES1",
+      "method": 
+          {
+              "add": "POST",
+              "update": "PUT",
+              "delete": "DELETE"
+          },
+          "geturl": "roles",
+          "tabledata": [
+              {
+                  "rowname":"CreationDate"
+              },
+                    {
+                      "rowname":"ModifiedDate"
+      
+                    } ,{
+                      "rowname":"ModifiedBy"
+      
+                    },
+                    {
+                      "rowname":"CreatedBy"
+                    },
+                    {
+                      "rowname":"RowVersion"
+      
+                    },
+                    {
+                      "rowname":"role_name"
+      
+                    },{
+                      "rowname":"role_priviledge"
+      
+                    }
+                
+              ],
+      "fields": [
+          {
+              "field_id": "CreatedBy",
+              "field_label": "CreatedBy",
+              "field_mandatory": "yes",
+              "field_placeholder": "Enter CreatedBy",
+              "field_type": "text",
+              "field_value": ""
+          },
+          {
+              "field_id": "ModifiedBy",
+              "field_label": "ModifiedBy",
+              "field_mandatory": "yes",
+              "field_placeholder": "Enter ModifiedBy",
+              "field_type": "text"
+
+          },
+          {
+              "field_id": "RowVersion",
+              "field_label": "RowVersion",
+              "field_mandatory": "yes",
+              "field_placeholder": "Enter RowVersion",
+              "field_type": "text"
+      
+          },
+          {
+              "field_id": "role_name",
+              "field_label": "role_name",
+              "field_mandatory": "yes",
+              "field_placeholder": "Enter role_name",
+              "field_type": "text"
+           
+          },
+          {
+              "field_id": "role_priviledge",
+              "field_label": "role_priviledge",
+              "field_mandatory": "yes",
+              "field_placeholder": "Enter role_priviledge",
+              "field_type": "text"
+         
+          }
+      ],
+      "DataCollection":[
+        {
+                 "RowVersion": "RowVersion",
+                "Id": "5",
+                "CreationDate": "CreationDate",
+                "ModifiedDate":"ModifiedDate",
+                "CreatedBy": "CreatedBy",
+                "ModifiedBy": "ModifiedBy",
+                "role_name": "role_name",
+                "role_priviledge": "role_priviledge"
+              
+        }
+              
+          ]
+      
+  },
+  {
+    "page_label": "AppRoles",
+    "service": "APP_ROLES1_SERVICE",
+    "queue": "APP_ROLES1",
+    "method": 
+        {
+            "add": "POST",
+            "update": "PUT",
+            "delete": "DELETE"
+        },
+        "geturl": "app_roles",
+        "tabledata": [
+            {
+                "rowname":"CreationDate"
+            },
+                  {
+                    "rowname":"ModifiedDate"
+    
+                  } ,{
+                    "rowname":"ModifiedBy"
+    
+                  },
+                  {
+                    "rowname":"CreatedBy"
+                  },
+                  {
+                    "rowname":"RowVersion"
+    
+                  },
+                  {
+                    "rowname":"app_role_permissions"
+    
+                  }
+              
+            ],
+    "fields": [
+        {
+            "field_id": "CreatedBy",
+            "field_label": "CreatedBy",
+            "field_mandatory": "yes",
+            "field_placeholder": "Enter CreatedBy",
+            "field_type": "text",
+            "field_value": ""
+        },
+        {
+            "field_id": "ModifiedBy",
+            "field_label": "ModifiedBy",
+            "field_mandatory": "yes",
+            "field_placeholder": "Enter ModifiedBy",
+            "field_type": "text"
+
+        },
+        {
+            "field_id": "RowVersion",
+            "field_label": "RowVersion",
+            "field_mandatory": "yes",
+            "field_placeholder": "Enter RowVersion",
+            "field_type": "text"
+    
+        },
+        {
+            "field_id": "app_role_permissions",
+            "field_label": "app_role_permissions",
+            "field_mandatory": "yes",
+            "field_placeholder": "Enter app_role_permissions",
+            "field_type": "text"
+         
+        },
+        
+        {
+          "field_id": "apps",
+          "field_label": "app_name",
+          "field_value": "Part-Time",
+          "field_mandatory": "yes",
+          "field_options": [
+              {
+                  "option_label": "Full-Time"
+              },
+              {
+                  "option_label": "Part-Time"
+              }
+          ],
+          "field_type": "select"
+      },
+      {
+        "field_id": "roles",
+        "field_label": "role_name",
+        "field_value": "Part-Time",
+        "field_mandatory": "yes",
+        "field_options": [
+            {
+                "option_label": "Full-Time"
+            },
+            {
+                "option_label": "Part-Time"
+            }
+        ],
+        "field_type": "select"
     }
+
+    ],
+    "DataCollection":[
+      {
+               "RowVersion": "RowVersion",
+              "Id": "5",
+              "CreationDate": "CreationDate",
+              "ModifiedDate":"ModifiedDate",
+              "CreatedBy": "CreatedBy",
+              "ModifiedBy": "ModifiedBy",
+              "app_role_permissions": "edd",
+               "apps": "110",
+              "roles": "18"
+            
+      }
+            
+        ]
+    
+}
 ]
