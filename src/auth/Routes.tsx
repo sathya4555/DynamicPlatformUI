@@ -10,6 +10,9 @@ import { loadConfig } from "./actions";
 
 
 function AuthContainer() {
+
+
+  
   const authStore = useSelector(
     (state: RootStateOrAny) => state.auth.authStore
   );
@@ -25,17 +28,21 @@ function AuthContainer() {
 function Routes(props: any) {
   // SocketUtility.getInstance();
   const dispatch = useDispatch();
-  const { isLoading } = useSelector((state: RootStateOrAny) => state.auth);
-  const isMenuLoading = useSelector(
-    (state: RootStateOrAny) => state.menu.isLoading
-  );
+  // const { isLoading } = useSelector((state: RootStateOrAny) => state.auth);
+  const { isLoading } = useSelector((state: RootStateOrAny) => state.auth); 
+
+  // const isMenuLoading = useSelector(
+  //   (state: RootStateOrAny) => state.menu.isLoading
+  // );
 
   useEffect(() => {
+    console.log("sathya isnide routes");
+    
     dispatch(loadConfig());
     // dispatch(loadSidebar());
   }, []);
 
-  if (isLoading || isMenuLoading) {
+  if (isLoading ) {
     return null;
   }
 
@@ -43,8 +50,8 @@ function Routes(props: any) {
     <>
       <Router>
         <Switch>
-          <Route exact path="/apps">
-            {!isLoading && !isMenuLoading && <AuthCallBack />}
+          <Route exact path="/app">
+            {!isLoading  && <AuthCallBack />}
           </Route>
           {/* {window.sessionStorage.getItem("routes") &&
             getComponentAndPathBasedOnRoute()} */}

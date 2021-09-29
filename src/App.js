@@ -21,10 +21,11 @@ import { slide as Menu } from 'react-burger-menu';
 import Header from './components/Header';
 import Routes from './auth/Routes';
 import { Provider } from "react-redux";
-// import { store } from "store";
+import  {store} from "./store";
 
 
 let socket = io.connect('https://localhost:4000');
+
 
 
  function App() {
@@ -124,7 +125,6 @@ function showOffline(e){
   <Header/>
   {/* <Provider store={store}> */}
   {/* <Provider > */}
-
   {/* <Routes /> */}
   {/* </Provider> */}
 

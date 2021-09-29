@@ -310,5 +310,133 @@
             
         ]
     
+},
+{
+  "page_label": "AppRoles",
+  "service": "APP_ROLES1_SERVICE",
+  "queue": "APP_ROLES1",
+  "method": 
+      {
+          "add": "POST",
+          "update": "PUT",
+          "delete": "DELETE"
+      },
+      "geturl": "app_roles",
+      "tabledata": [
+          {
+              "rowname":"CreationDate"
+          },
+                {
+                  "rowname":"ModifiedDate"
+  
+                } ,{
+                  "rowname":"ModifiedBy"
+  
+                },
+                {
+                  "rowname":"CreatedBy"
+                },
+                {
+                  "rowname":"RowVersion"
+  
+                },
+                {
+                  "rowname":"app_role_permissions"
+  
+                }
+            
+          ],
+  "fields": [
+      {
+          "field_id": "CreatedBy",
+          "field_label": "CreatedBy",
+          "field_mandatory": "yes",
+          "field_placeholder": "Enter CreatedBy",
+          "field_type": "text",
+          "field_value": ""
+      },
+      {
+        "field_id": "dsddasddsffds",
+        "field_label": "dsfsdf",
+        "field_mandatory": "yes",
+        "field_placeholder": "Enter sdsfsdf",
+        "field_type": "text",
+        "field_value": ""
+    },
+      {
+          "field_id": "ModifiedBy",
+          "field_label": "ModifiedBy",
+          "field_mandatory": "yes",
+          "field_placeholder": "Enter ModifiedBy",
+          "field_type": "text"
+
+      },
+      {
+          "field_id": "RowVersion",
+          "field_label": "RowVersion",
+          "field_mandatory": "yes",
+          "field_placeholder": "Enter RowVersion",
+          "field_type": "text"
+  
+      },
+      {
+          "field_id": "app_role_permissions",
+          "field_label": "app_role_permissions",
+          "field_mandatory": "yes",
+          "field_placeholder": "Enter app_role_permissions",
+          "field_type": "text"
+       
+      },
+      
+      {
+        "field_id": "apps",
+        "field_label": "app_name",
+        "field_value": "Part-Time",
+        "field_mandatory": "yes",
+        "field_options": [
+            {
+                "option_label": "Full-Time"
+            },
+            {
+                "option_label": "Part-Time"
+            }
+        ],
+        "field_type": "select"
+    },
+    
+    {
+      "field_id": "roles",
+      "field_label": "role_name",
+      "field_value": "Part-Time",
+      "field_mandatory": "yes",
+      "field_options": [
+          {
+              "option_label": "Full-Time"
+          },
+          {
+              "option_label": "Part-Time"
+          }
+      ],
+      "field_type": "select"
+  }
+
+  ],
+  "DataCollection":[
+    {
+             "RowVersion": "RowVersion",
+            "Id": "5",
+            "CreationDate": "CreationDate",
+            "ModifiedDate":"ModifiedDate",
+            "CreatedBy": "CreatedBy",
+            "ModifiedBy": "ModifiedBy",
+            "app_role_permissions": "edd",
+             "apps": "110",
+            "roles": "18"
+          
+    }
+          
+      ]
+  
 }
+
 ]

@@ -95,6 +95,8 @@ export class AuthenticationStore {
   }
 
   getUserProfile() {
+
+    
     return this.user;
   }
 

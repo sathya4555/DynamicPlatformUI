@@ -575,15 +575,53 @@ for (var i = 0; i < APPS.length; i++){
 return menu
         
     }
+
+
+ 
+    function filltddata1(row,field){
+        // var arr = [ {"id":"10", "class": "child-of-9"}, {"id":"11", "class": "child-of-10"}];
+ 
+for (var i = 0; i < APPS.length; i++){
+//   document.write("<br><br>array index: " + i);
+//   var obj = APPS[i];
+   var obj = row;
+// console.log("length",props.setjSON.tabledata.length);
+//   console.log("obj",obj);
+
+// console.log("fireld[]o",field);
+  for (var key in obj){
+    for (var key1 in field){
+        // console.log("field_name",field[key1])
+        //  console.log("obj1_name",key)
+
+         if(key==field[key1]){
+            var value = obj[key];
+            //  document.write("<br> - " + key + ": " + value);
+            // console.log("key =",key,"  value  = ",value)
+            menu=(<td>{value}</td>)
+        }
+   
+  }}
+
+}
+return menu
+        
+    }
     function close(){
         setaddflag(0)
     }
+
+const [searchOpenflag, setsearchOpenflag] = useState(0)
+const [searchresult, setsearchresult] = useState([""])
+const searchADD = searchresult
 const [searchInput, setsearchInput] = useState('')
 const Search = async (e) => {
     e.preventDefault()
+    props.setjSON &&  props.setjSON.tabledata.map(async(row)=>{
+        console.log("rowname",row.rowname);
         const response = await fetch(`http://localhost:4001/${props.setjSON.geturl}/search`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'requestmodel': `{"Filter":{"Conditions":[{"FieldName":"app_name","FieldValue":"${searchInput}"}]},"Children": ["ddd"]}`},
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json', 'requestmodel': `{"Filter":{"Conditions":[{"FieldName":"${row.rowname}","FieldValue":"${searchInput}"}]},"Children": ["ddd"]}`},
             //credentials: 'include',
             // body: JSON.stringify({
             //   id,
@@ -591,9 +629,21 @@ const Search = async (e) => {
       
       
             // })
-          });
-          console.log("input",searchInput);
-          console.log(response);
+          }).then(response => response.json())
+        //   .then(json => console.log(json.DataCollection))
+          .then(json => setsearchresult(json.DataCollection));
+        //   console.log("input",searchInput);
+           console.log("searchresult",searchresult);
+           
+           setsearchOpenflag(1)
+    })
+      
+    }
+
+    function SearchClear(e){
+    e.preventDefault()
+    // setsearchInput("")
+        setsearchOpenflag(0)
     }
     return (
         <div>
@@ -606,7 +656,11 @@ const Search = async (e) => {
       <div class="td" id="s-cover">
         <button type="submit" onClick={(e) => Search(e)}>
           <div id="s-circle"></div>
-          <span></span>
+          <span>Search</span>
+        </button>
+        <button type="submit" onClick={(e) => SearchClear(e)}>
+          <div id="s-circle"></div>
+          <span>Clear</span>
         </button>
       </div>
     </div>
@@ -628,7 +682,41 @@ const Search = async (e) => {
                 {/* <button type="button" onClick={(e) => adddata(e)}  className="btn btn-danger">Add Data</button> */}
                 
             </div>
-            <Table striped bordered hover style={{backgroundColor:"paleblue",width:"80rem",margin: 'auto'}}>
+
+            {(searchOpenflag === 1 ?        <Table striped bordered hover style={{backgroundColor:"paleblue",width:"80rem",margin: 'auto'}}>
+               <tr>
+                   <th style={{backgroundColor:'grey'}} >Id</th>
+               { props.setjSON &&  props.setjSON.tabledata.map((field) => 
+               <th style={{backgroundColor:'grey'}}> {field.rowname}</th>
+               ) }
+                {/* <button type="button" onClick={(e) => adddata(e)}  className="btn btn-danger">Add Data</button> */}
+                {/* <button type="button" onClick={(e) => adddata(e)}  className="btn btn-danger">Add Data</button> */}
+               <th><button style={{backgroundColor:'grey',width:'5rem'}} type="button" onClick={(e) => adddata(e)}  className="btn btn-danger">{"  "}<i style={{width:'1rem'}} class='fas fa-plus'></i></button> </th>
+               </tr>
+               <tbody>
+               {(flag === 0 ? searchresult && searchresult.map((row) =>
+            
+            <tr>
+
+                <td>{row.Id}</td>
+              { props.setjSON &&  props.setjSON.tabledata.map((field) => 
+              
+                           filltddata1(row,field)
+             ) 
+             }
+               
+            <td><button type="button" style={{textAlign:'center'}} onClick={(e) => editdata(e,row.Id)}  className="btn btn-primary"><i class='fas fa-edit'></i> </button></td>
+            <td><button type="button" onClick={(e) => deletedata(e,row.Id)}  className="btn btn-danger"><i class='fas fa-trash-alt'></i> </button></td>
+            </tr>
+          ): "")}   
+           
+           { props.setjSON.fields.map((row)=>{
+                <td>{row.field_id}</td>
+        //  console.log(row.field_id) 
+     })}
+          </tbody>
+
+               </Table> :    <Table striped bordered hover style={{backgroundColor:"paleblue",width:"80rem",margin: 'auto'}}>
                <tr>
                    <th style={{backgroundColor:'grey'}} >Id</th>
                { props.setjSON &&  props.setjSON.tabledata.map((field) => 
@@ -642,35 +730,14 @@ const Search = async (e) => {
                {(flag === 0 ?  APPS.map((row) =>
             
             <tr>
-                  {/* <td>{row.arr[i]}</td> */}
-                {/* <td>
-                   {row.i} 
-                    </td> */}
+
                 <td>{row.Id}</td>
               { props.setjSON &&  props.setjSON.tabledata.map((field) => 
               
                            filltddata(row,field)
              ) 
              }
-                {/* <td>a</td> */}
-              {/* <td>{row.Id}</td> */}
-              {/* <td>{filltddata(row)}</td>
-              <td>{filltddata(row)}</td>
-              <td>{filltddata(row)}</td>
-              <td>{filltddata(row)}</td>
-              <td>{filltddata(row)}</td>
-              <td>{filltddata(row)}</td>
-              <td>{filltddata(row)}</td>
-              <td>{filltddata(row)}</td> */}
-
-              {/* <td>{row.CreationDate}</td>
-              <td>{row.ModifiedDate}</td>
-              <td>{row.ModifiedBy}</td>
-              <td>{filltddata(row)}</td>
-              <td>{row.CreatedBy}</td>
-              <td>{row.RowVersion}</td>
-              <td>{row.app_name}</td>
-              <td>{row.app_description}</td> */}
+               
             <td><button type="button" style={{textAlign:'center'}} onClick={(e) => editdata(e,row.Id)}  className="btn btn-primary"><i class='fas fa-edit'></i> </button></td>
             <td><button type="button" onClick={(e) => deletedata(e,row.Id)}  className="btn btn-danger"><i class='fas fa-trash-alt'></i> </button></td>
             </tr>
@@ -682,7 +749,8 @@ const Search = async (e) => {
      })}
           </tbody>
 
-               </Table>
+               </Table>)}
+         
                <div style={{textAlign: ' center'}}>
                <td><button type="button" style={{textAlign:'center'}} onClick={(e) => paginateSub()}  className="btn btn-primary"><i class="fa fa-minus"></i> </button></td>
                <td> {pageNumber && pageNumber}</td>

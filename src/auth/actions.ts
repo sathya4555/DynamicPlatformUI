@@ -5,6 +5,8 @@ import { LOAD_AUTH_CONFIG } from "./types";
 export const loadConfig = () => async (dispatch: any, getState: any) => {
   //local present break;
   //store config in session storage
+  console.log("inside load config");
+  
   const config = await fetchConfig();
   dispatch({ type: LOAD_AUTH_CONFIG, payload: config });
 };
@@ -13,11 +15,13 @@ const fetchConfig = async () => {
   // await configurationApi
   //   .get(`${ENDPOINTS.CONFIGURATION.COMMUNITY}`)
   //   .then((res) => {
+    console.log("inside fetch config");
+    
       let config = {
-        authority: "https://ca-central-1.console.aws.amazon.com/cognito/users/?region=ca-central-1#/pool/ca-central-1_dcs5wTtEl/app-integration-app-settings?_k=2m4zpw",
+        authority: "https://cognito-idp.region.amazonaws.com/ca-central-1_dcs5wTtEl",
         client_id: "6ao3t42tqdtgrp56ojvauitm25",
         response_type: "code",
-        scope: "email openid profile",
+        scope: "openid profile email",
         pool_id: "ca-central-1_dcs5wTtEl",
         redirect_uri:"http://localhost:3000/apps",
           // window.location.protocol +
